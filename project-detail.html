@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Project Detail — Etienne McDowell</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-perso-style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="test-site-perso.html">
+        <div class="brand-text">
+          <span class="first-name">Etienne</span>
+          <span class="last-name">McDowell</span>
+        </div>
+      </a>
+      <nav class="top-nav">
+        <a href="test-site-perso.html">Work</a>
+        <a href="info.html">Info</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="project-detail-section">
+    <a href="test-site-perso.html" class="back-link">← Back to Work</a>
+    
+    <div class="project-detail" id="project-content">
+      <!-- Content will be loaded by JavaScript -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <a href="#" class="go-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <span class="arrow">↑</span>
+        <span class="go-to-top-text">Go to top</span>
+      </a>
+      <div class="footer-social">
+        <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="mailto:contact@etiennemcdowell.com" class="social-icon" aria-label="Email">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Project data
+    const projects = {
+      mountains: {
+        title: "Calendar Summits of the World",
+        year: "2024",
+        category: "Editorial Design",
+        galleryType: "two-column",
+        items: [
+          { image: "images/calendar-01.jpg" },
+          { image: "images/calendar-02.jpg" }
+        ]
+      },
+      driftwire: {
+        title: "Driftwire Brand Identity",
+        year: "2025",
+        category: "Brand Identity",
+        galleryType: "two-column-grid",
+        items: [
+          { image: "images/driftwire-01.jpg" },
+          { image: "images/driftwire-02.jpg" },
+          { image: "images/driftwire-03.jpg" },
+          { image: "images/driftwire-04.jpg" }
+        ]
+      },
+      lukx: {
+        title: "Lukx Merchandise",
+        year: "2024",
+        category: "Merchandising",
+        galleryType: "lukx",
+        logo: "images/lukx-logo.png",
+        description: "Collection of merchandise for Lukx, combining urban design and premium quality. Each piece reflects the essence of the brand through striking visuals.",
+        items: [
+          { image: "images/lukx-tshirt-01.jpg" },
+          { image: "images/lukx-tshirt-02.jpg" },
+          { image: "images/lukx-tshirt-03.jpg" },
+          { image: "images/lukx-tshirt-04.jpg" },
+          { image: "images/lukx-tshirt-05.jpg" },
+          { image: "images/lukx-tshirt-06.jpg" },
+          { image: "images/lukx-tshirt-07.jpg" },
+          { image: "images/lukx-tshirt-08.jpg" },
+          { image: "images/lukx-tshirt-09.jpg" },
+          { image: "images/lukx-tshirt-10.jpg" },
+        ]
+      },
+      vin: {
+        title: "Lakeside Wine Branding",
+        image: "images/vin.jpg",
+        description: "Brand identity for Lakeside Wine, highlighting elegance and winemaking tradition. The design evokes sophistication while remaining accessible.",
+        year: "2024",
+        category: "Branding"
+      },
+      magazine: {
+        title: "Bawette Magazine",
+        year: "2025",
+        category: "Editorial Design",
+        galleryType: "two-column",
+        items: [
+          { image: "images/magazine-01.jpg" },
+          { image: "images/magazine-02.jpg" },
+          { image: "images/magazine-03.jpg" },
+          { image: "images/magazine-04.jpg" }
+        ]
+      },
+      vinyl: {
+        title: "Lil'Tone Album Cover",
+        image: "images/vinyl.jpg",
+        description: "Vinyl album cover for Lil'Tone. A bold design that captures the energy and spirit of the music through a strong visual composition.",
+        year: "2022",
+        category: "Music Design"
+      },
+      skate: {
+        title: "Element Skateboard",
+        image: "images/skate.jpg",
+        description: "Skateboard deck design for Element, merging art and functionality. A visual that expresses the identity of modern skate culture.",
+        year: "2022",
+        category: "Product Design"
+      },
+      slam: {
+        title: "Slam Ceramics",
+        year: "2025",
+        category: "Web Design",
+        images: [
+          { src: "images/slam-mockup.jpg", title: "" },
+          { src: "images/slam-home.jpg", title: "Main Page" },
+          { src: "images/slam-workshop.jpg", title: "Workshop" },
+          { src: "images/slam-about.jpg", title: "About Us" }
+        ]
+      },
+      "more-client-work": {
+        title: "More Client Work and Various Projects",
+        year: "2024",
+        galleryType: "vertical",
+        category: "Various",
+        items: [
+          { title: "60's style print ad for Decca Records", image: "images/project1.jpg" },
+          { title: "Movie Poster for indie film: Silkscreen Arcadia", image: "images/project2.jpg" },
+          { title: "Layouts and Poster Design for Stills photo licensing campaign", image: "images/project3.jpg" },
+          { title: "Official Movie poster design for \"Dice 'n Steal\"", image: "images/project4.jpg" },
+          { title: "Select social media graphics for grapes.com", image: "images/project5.jpg" },
+          { title: "Playlist cover art made for a campaign with Monotype Fonts 2024 Type Trends Report", image: "images/project6.jpg" },
+          { title: "Graphic & Water Bottle Design for Creator Camp x Switzerland", image: "images/project7.jpg" }
+        ],
+        slideshows: [
+          {
+            title: "Project Slideshow 1",
+            images: [
+              { image: "images/slideshow1-01.jpg" },
+              { image: "images/slideshow1-02.jpg" },
+              { image: "images/slideshow1-03.jpg" },
+              { image: "images/slideshow1-04.jpg" },
+              { image: "images/slideshow1-05.jpg" }
+            ]
+          },
+          {
+            title: "Project Slideshow 2",
+            images: [
+              { image: "images/slideshow2-01.jpg" },
+              { image: "images/slideshow2-02.jpg" },
+              { image: "images/slideshow2-03.jpg" },
+              { image: "images/slideshow2-04.jpg" }
+            ]
+          }
+        ],
+        slideshowPositions: [3, 5] // Position slideshows after item index 3 and 5
+      }
+    };
+
+    // Get project from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectKey = urlParams.get('project');
+    const project = projects[projectKey];
+
+    // Display project
+    const projectContent = document.getElementById('project-content');
+    if (project) {
+      let html = '';
+      
+      // Special handling for Lukx gallery (logo + description header + 2 columns)
+      if (project.galleryType === "lukx" && project.items) {
+        html += `
+          <div class="lukx-header">
+            <div class="lukx-logo-container">
+              <img src="${project.logo}" alt="${project.title} Logo" class="lukx-logo">
+            </div>
+            <div class="lukx-description">
+              <p>${project.description}</p>
+            </div>
+          </div>
+          <div class="lukx-gallery">
+        `;
+        project.items.forEach((item, index) => {
+          html += `
+            <div class="lukx-gallery-item">
+              <img src="${item.image}" alt="${project.title} - ${index + 1}" class="lukx-gallery-image">
+            </div>`;
+        });
+        html += `</div>`;
+      }
+      // Special handling for two-column grid gallery (driftwire - 2x2 grid)
+      else if (project.galleryType === "two-column-grid" && project.items) {
+        html += `
+          <div class="project-header">
+            <h1 class="project-title">${project.title}</h1>
+            <div class="project-meta">
+              <span class="project-category">${project.category}</span>
+              <span class="project-year">${project.year}</span>
+            </div>
+          </div>
+          <div class="lukx-gallery driftwire-gallery">
+        `;
+        project.items.forEach((item, index) => {
+          html += `
+            <div class="lukx-gallery-item driftwire-gallery-item">
+              <img src="${item.image}" alt="${project.title} - ${index + 1}" class="lukx-gallery-image driftwire-gallery-image">
+            </div>`;
+        });
+        html += `</div>`;
+      }
+      // Special handling for two-column gallery (magazine, etc.)
+      else if (project.galleryType === "two-column" && project.items) {
+        html += `
+          <div class="project-header">
+            <h1 class="project-title">${project.title}</h1>
+            <div class="project-meta">
+              <span class="project-category">${project.category}</span>
+              <span class="project-year">${project.year}</span>
+            </div>
+          </div>
+          <div class="lukx-gallery magazine-gallery">
+        `;
+        project.items.forEach((item, index) => {
+          // First image: full width (span 2 columns)
+          if (index === 0) {
+            html += `
+              <div class="lukx-gallery-item magazine-gallery-item-full">
+                <img src="${item.image}" alt="${project.title} - ${index + 1}" class="lukx-gallery-image">
+              </div>`;
+          }
+          // Last image: full width (span 2 columns)
+          else if (index === project.items.length - 1) {
+            html += `
+              <div class="lukx-gallery-item magazine-gallery-item-full">
+                <img src="${item.image}" alt="${project.title} - ${index + 1}" class="lukx-gallery-image">
+              </div>`;
+          }
+          // Middle images: half width (1 column)
+          else {
+            html += `
+              <div class="lukx-gallery-item">
+                <img src="${item.image}" alt="${project.title} - ${index + 1}" class="lukx-gallery-image">
+              </div>`;
+          }
+        });
+        html += `</div>`;
+      }
+      // Special handling for vertical gallery (more-client-work)
+      else if (project.galleryType === "vertical" && project.items) {
+        html += `
+          <div class="project-header">
+            <h1 class="project-title">${project.title}</h1>
+            <div class="project-meta">
+              <span class="project-category">${project.category}</span>
+              <span class="project-year">${project.year}</span>
+            </div>
+          </div>`;
+        html += `<div class="vertical-gallery">`;
+        
+        // Helper function to render slideshow
+        function renderSlideshow(slideshow, slideshowIndex) {
+          let slideshowHtml = `
+            <div class="slideshow-container" data-slideshow-index="${slideshowIndex}">
+              <h3 class="slideshow-title">${slideshow.title}</h3>
+              <div class="slideshow-wrapper">
+                <div class="slideshow-images">`;
+          slideshow.images.forEach((img, imgIndex) => {
+            slideshowHtml += `
+                  <img src="${img.image}" alt="${slideshow.title} - ${imgIndex + 1}" class="slideshow-image ${imgIndex === 0 ? 'active' : ''}" data-lightbox-src="${img.image}" style="cursor: pointer;">`;
+          });
+          slideshowHtml += `
+                </div>
+                <div class="slideshow-controls">
+                  <button class="slideshow-prev" onclick="changeSlide(${slideshowIndex}, -1)">←</button>
+                  <div class="slideshow-dots">`;
+          slideshow.images.forEach((img, imgIndex) => {
+            slideshowHtml += `<span class="slideshow-dot ${imgIndex === 0 ? 'active' : ''}" onclick="goToSlide(${slideshowIndex}, ${imgIndex})"></span>`;
+          });
+          slideshowHtml += `
+                  </div>
+                  <button class="slideshow-next" onclick="changeSlide(${slideshowIndex}, 1)">→</button>
+                </div>
+              </div>
+            </div>`;
+          return slideshowHtml;
+        }
+        
+        const slideshowPositions = project.slideshowPositions || [];
+        let slideshowIndex = 0;
+        
+        project.items.forEach((item, index) => {
+          // Add gallery item
+          html += `
+            <div class="gallery-item">
+              <div class="gallery-image-container">
+                <img src="${item.image}" alt="${item.title}" class="gallery-image">
+              </div>
+              <h3 class="gallery-item-title">${item.title}</h3>
+            </div>`;
+          
+          // Add slideshow if position matches
+          if (slideshowPositions.includes(index + 1) && project.slideshows && project.slideshows[slideshowIndex]) {
+            html += renderSlideshow(project.slideshows[slideshowIndex], slideshowIndex);
+            slideshowIndex++;
+          }
+        });
+        html += `</div>`;
+      }
+      // Special handling for SLAM project with multiple images
+      else if (project.images && project.images.length > 0) {
+        html += `
+          <div class="project-header">
+            <h1 class="project-title">${project.title}</h1>
+            <div class="project-meta">
+              <span class="project-category">${project.category}</span>
+              <span class="project-year">${project.year}</span>
+            </div>
+          </div>`;
+        project.images.forEach((img, index) => {
+          if (img.title) {
+            html += `<h2 class="project-section-title">${img.title}</h2>`;
+          }
+          html += `
+            <div class="project-image-container">
+              <img src="${img.src}" alt="${project.title} - ${img.title || ''}" class="project-main-image">
+            </div>`;
+        });
+      } else {
+        html += `
+          <div class="project-header">
+            <h1 class="project-title">${project.title}</h1>
+            <div class="project-meta">
+              <span class="project-category">${project.category}</span>
+              <span class="project-year">${project.year}</span>
+            </div>
+          </div>
+          <div class="project-image-container">
+            <img src="${project.image}" alt="${project.title}" class="project-main-image">
+          </div>`;
+        if (project.description) {
+          html += `
+            <div class="project-description">
+              <p>${project.description}</p>
+            </div>`;
+        }
+      }
+      
+      projectContent.innerHTML = html;
+    } else {
+      projectContent.innerHTML = `
+        <div class="project-header">
+          <h1 class="project-title">Project not found</h1>
+        </div>
+        <p>The requested project does not exist.</p>
+        <a href="test-site-perso.html" class="back-link">← Back to Work</a>
+      `;
+    }
+  </script>
+  
+  <script>
+    // Slideshow functionality
+    function changeSlide(slideshowIndex, direction) {
+      const slideshow = document.querySelector(`[data-slideshow-index="${slideshowIndex}"]`);
+      if (!slideshow) return;
+      
+      const images = slideshow.querySelectorAll('.slideshow-image');
+      const dots = slideshow.querySelectorAll('.slideshow-dot');
+      let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+      
+      if (currentIndex === -1) currentIndex = 0;
+      
+      images[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      
+      images[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+    }
+    
+    function goToSlide(slideshowIndex, slideIndex) {
+      const slideshow = document.querySelector(`[data-slideshow-index="${slideshowIndex}"]`);
+      if (!slideshow) return;
+      
+      const images = slideshow.querySelectorAll('.slideshow-image');
+      const dots = slideshow.querySelectorAll('.slideshow-dot');
+      
+      images.forEach((img, index) => {
+        img.classList.toggle('active', index === slideIndex);
+      });
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === slideIndex);
+      });
+    }
+    
+    // Auto-advance slideshows
+    document.addEventListener('DOMContentLoaded', function() {
+      const slideshows = document.querySelectorAll('.slideshow-container');
+      slideshows.forEach((slideshow, index) => {
+        setInterval(function() {
+          changeSlide(index, 1);
+        }, 4000); // Change slide every 4 seconds
+      });
+      
+      // Lightbox for slideshow images
+      const slideshowImages = document.querySelectorAll('.slideshow-image');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxClose = document.getElementById('lightbox-close');
+      
+      if (lightbox && lightboxImage) {
+        slideshowImages.forEach(img => {
+          img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const imageSrc = this.getAttribute('data-lightbox-src') || this.src;
+            const imageAlt = this.alt;
+            
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = imageAlt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          });
+        });
+        
+        function closeLightbox() {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        
+        if (lightboxClose) {
+          lightboxClose.addEventListener('click', closeLightbox);
+        }
+        
+        lightbox.addEventListener('click', function(e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+          }
+        });
+      }
+    });
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close"></button>
+    <img src="" alt="" class="lightbox-image" id="lightbox-image">
+  </div>
+</body>
+</html>
+
