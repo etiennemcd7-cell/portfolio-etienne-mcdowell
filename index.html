@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Work — Etienne McDowell</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-perso-style.css">
 </head>
@@ -13,7 +12,10 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="index.html">
-      <span>Etienne McDowell</span>
+      <div class="brand-text">
+        <span class="first-name">Etienne</span>
+        <span class="last-name">McDowell</span>
+      </div>
     </a>
     <nav class="top-nav">
       <a href="index.html" class="active">Work</a>
@@ -23,23 +25,33 @@
 </header>
 
 <main class="work-section">
-  <div class="grid">
+  <div class="container">
+    <div class="grid">
 
-    <a href="project-detail.html?project=mountains">
-      <img src="images/mountains.png" alt="">
-      <h2>Calendar Summits</h2>
-    </a>
+      <a href="project-detail.html?project=mountains" class="item-link">
+        <div class="item item-calendar">
+          <img src="images/mountains.png" alt="">
+          <div class="overlay"><h2>Calendar Summits of the World</h2></div>
+        </div>
+      </a>
 
-    <a href="project-detail.html?project=driftwire">
-      <img src="images/driftwire-site.jpg" alt="">
-      <h2>Driftwire</h2>
-    </a>
+      <a href="project-detail.html?project=driftwire" class="item-link">
+        <div class="item">
+          <img src="images/driftwire-site.jpg" alt="">
+          <div class="overlay"><h2>Driftwire Brand Identity</h2></div>
+        </div>
+      </a>
 
-    <a href="project-detail.html?project=slam">
-      <img src="images/slam-logo.png" alt="">
-      <h2>Slam Ceramics</h2>
-    </a>
+      <a href="project-detail.html?project=slam" class="item-link">
+        <div class="item">
+          <img src="images/slam-logo.png" alt="">
+          <div class="overlay"><h2>Slam Ceramics</h2></div>
+        </div>
+      </a>
 
+      <!-- garde exactement le reste de tes projets ici -->
+
+    </div>
   </div>
 </main>
 
