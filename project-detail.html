@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Project Detail — Etienne McDowell</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-perso-style.css">
 </head>
@@ -12,13 +11,21 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html">Work</a>
-    <a href="info.html">Info</a>
+    <a class="brand" href="index.html">
+      <div class="brand-text">
+        <span class="first-name">Etienne</span>
+        <span class="last-name">McDowell</span>
+      </div>
+    </a>
+    <nav class="top-nav">
+      <a href="index.html">Work</a>
+      <a href="info.html">Info</a>
+    </nav>
   </div>
 </header>
 
-<main>
-  <a href="index.html">← Back to Work</a>
+<main class="project-detail-section">
+  <a href="index.html" class="back-link">← Back to Work</a>
   <div id="project-content"></div>
 </main>
 
@@ -27,17 +34,10 @@ const projects = {
   mountains: {
     title: "Calendar Summits of the World",
     year: "2024",
+    category: "Editorial Design",
     images: [
       "images/calendar-01.jpg",
       "images/calendar-02.jpg"
-    ]
-  },
-  driftwire: {
-    title: "Driftwire Brand Identity",
-    year: "2025",
-    images: [
-      "images/driftwire-01.jpg",
-      "images/driftwire-02.jpg"
     ]
   }
 };
@@ -51,8 +51,8 @@ if (!project) {
 } else {
   container.innerHTML = `
     <h1>${project.title}</h1>
-    <p>${project.year}</p>
-    ${project.images.map(img => `<img src="${img}" style="width:100%;margin:30px 0;">`).join("")}
+    <p>${project.category} — ${project.year}</p>
+    ${project.images.map(img => `<img src="${img}" class="project-image">`).join("")}
   `;
 }
 </script>
