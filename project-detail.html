@@ -5,64 +5,57 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Project Detail — Etienne McDowell</title>
 
-  <!-- IMPORTANT -->
-  <base href="./">
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-perso-style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="./index.html">
-        <div class="brand-text">
-          <span class="first-name">Etienne</span>
-          <span class="last-name">McDowell</span>
-        </div>
-      </a>
-      <nav class="top-nav">
-        <a href="./index.html">Work</a>
-        <a href="./info.html">Info</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html">Work</a>
+    <a href="info.html">Info</a>
+  </div>
+</header>
 
-  <main class="project-detail-section">
-    <a href="./index.html" class="back-link">← Back to Work</a>
-    <div id="project-content"></div>
-  </main>
+<main>
+  <a href="index.html">← Back to Work</a>
+  <div id="project-content"></div>
+</main>
 
-  <script>
-    const projects = {
-      mountains: {
-        title: "Calendar Summits of the World",
-        year: "2024",
-        category: "Editorial Design",
-        items: [
-          "images/calendar-01.jpg",
-          "images/calendar-02.jpg"
-        ]
-      }
-    };
+<script>
+const projects = {
+  mountains: {
+    title: "Calendar Summits of the World",
+    year: "2024",
+    images: [
+      "images/calendar-01.jpg",
+      "images/calendar-02.jpg"
+    ]
+  },
+  driftwire: {
+    title: "Driftwire Brand Identity",
+    year: "2025",
+    images: [
+      "images/driftwire-01.jpg",
+      "images/driftwire-02.jpg"
+    ]
+  }
+};
 
-    const params = new URLSearchParams(window.location.search);
-    const project = projects[params.get("project")];
-    const container = document.getElementById("project-content");
+const params = new URLSearchParams(window.location.search);
+const project = projects[params.get("project")];
+const container = document.getElementById("project-content");
 
-    if (!project) {
-      container.innerHTML = `
-        <h1>Project not found</h1>
-        <a href="./index.html">← Back to Work</a>
-      `;
-    } else {
-      container.innerHTML = `
-        <h1>${project.title}</h1>
-        <p>${project.category} — ${project.year}</p>
-        ${project.items.map(src => `<img src="${src}" style="width:100%;margin:40px 0;">`).join("")}
-      `;
-    }
-  </script>
+if (!project) {
+  container.innerHTML = "<h1>Project not found</h1>";
+} else {
+  container.innerHTML = `
+    <h1>${project.title}</h1>
+    <p>${project.year}</p>
+    ${project.images.map(img => `<img src="${img}" style="width:100%;margin:30px 0;">`).join("")}
+  `;
+}
+</script>
 
 </body>
 </html>
