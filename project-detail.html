@@ -9,53 +9,75 @@
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html">
-      <div class="brand-text">
-        <span class="first-name">Etienne</span>
-        <span class="last-name">McDowell</span>
-      </div>
-    </a>
-    <nav class="top-nav">
-      <a href="index.html">Work</a>
-      <a href="info.html">Info</a>
-    </nav>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/test-site-perso.html">
+        <div class="brand-text">
+          <span class="first-name">Etienne</span>
+          <span class="last-name">McDowell</span>
+        </div>
+      </a>
+      <nav class="top-nav">
+        <a href="/test-site-perso.html">Work</a>
+        <a href="/info.html">Info</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="project-detail-section">
-  <a href="index.html" class="back-link">← Back to Work</a>
-  <div id="project-content"></div>
-</main>
+  <!-- MAIN -->
+  <main class="project-detail-section">
+    <a href="/test-site-perso.html" class="back-link">← Back to Work</a>
 
-<script>
-const projects = {
-  mountains: {
-    title: "Calendar Summits of the World",
-    year: "2024",
-    category: "Editorial Design",
-    images: [
-      "images/calendar-01.jpg",
-      "images/calendar-02.jpg"
-    ]
-  }
-};
+    <div class="project-detail" id="project-content"></div>
+  </main>
 
-const params = new URLSearchParams(window.location.search);
-const project = projects[params.get("project")];
-const container = document.getElementById("project-content");
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <a href="#" class="go-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        ↑ Go to top
+      </a>
+    </div>
+  </footer>
 
-if (!project) {
-  container.innerHTML = "<h1>Project not found</h1>";
-} else {
-  container.innerHTML = `
-    <h1>${project.title}</h1>
-    <p>${project.category} — ${project.year}</p>
-    ${project.images.map(img => `<img src="${img}" class="project-image">`).join("")}
-  `;
-}
-</script>
+  <!-- PROJECT DATA -->
+  <script>
+    const projects = {
+      mountains: {
+        title: "Calendar Summits of the World",
+        year: "2024",
+        category: "Editorial Design",
+        items: [
+          { image: "images/calendar-01.jpg" },
+          { image: "images/calendar-02.jpg" }
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get("project");
+    const project = projects[key];
+    const container = document.getElementById("project-content");
+
+    if (!project) {
+      container.innerHTML = `
+        <h1>Project not found</h1>
+        <a href="/test-site-perso.html">← Back to Work</a>
+      `;
+    } else {
+      let html = `
+        <h1>${project.title}</h1>
+        <p>${project.category} — ${project.year}</p>
+      `;
+
+      project.items.forEach(item => {
+        html += `<img src="${item.image}" style="width:100%;margin-bottom:40px;">`;
+      });
+
+      container.innerHTML = html;
+    }
+  </script>
 
 </body>
 </html>
