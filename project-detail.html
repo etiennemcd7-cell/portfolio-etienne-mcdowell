@@ -4,44 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Project Detail — Etienne McDowell</title>
+
+  <!-- IMPORTANT -->
+  <base href="./">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-perso-style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="/test-site-perso.html">
+      <a class="brand" href="./index.html">
         <div class="brand-text">
           <span class="first-name">Etienne</span>
           <span class="last-name">McDowell</span>
         </div>
       </a>
       <nav class="top-nav">
-        <a href="/test-site-perso.html">Work</a>
-        <a href="/info.html">Info</a>
+        <a href="./index.html">Work</a>
+        <a href="./info.html">Info</a>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="project-detail-section">
-    <a href="/test-site-perso.html" class="back-link">← Back to Work</a>
-
-    <div class="project-detail" id="project-content"></div>
+    <a href="./index.html" class="back-link">← Back to Work</a>
+    <div id="project-content"></div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <a href="#" class="go-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-        ↑ Go to top
-      </a>
-    </div>
-  </footer>
-
-  <!-- PROJECT DATA -->
   <script>
     const projects = {
       mountains: {
@@ -49,33 +40,27 @@
         year: "2024",
         category: "Editorial Design",
         items: [
-          { image: "images/calendar-01.jpg" },
-          { image: "images/calendar-02.jpg" }
+          "images/calendar-01.jpg",
+          "images/calendar-02.jpg"
         ]
       }
     };
 
     const params = new URLSearchParams(window.location.search);
-    const key = params.get("project");
-    const project = projects[key];
+    const project = projects[params.get("project")];
     const container = document.getElementById("project-content");
 
     if (!project) {
       container.innerHTML = `
         <h1>Project not found</h1>
-        <a href="/test-site-perso.html">← Back to Work</a>
+        <a href="./index.html">← Back to Work</a>
       `;
     } else {
-      let html = `
+      container.innerHTML = `
         <h1>${project.title}</h1>
         <p>${project.category} — ${project.year}</p>
+        ${project.items.map(src => `<img src="${src}" style="width:100%;margin:40px 0;">`).join("")}
       `;
-
-      project.items.forEach(item => {
-        html += `<img src="${item.image}" style="width:100%;margin-bottom:40px;">`;
-      });
-
-      container.innerHTML = html;
     }
   </script>
 
