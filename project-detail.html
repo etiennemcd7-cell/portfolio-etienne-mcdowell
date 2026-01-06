@@ -12,14 +12,14 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="/index.html">
+      <a class="brand" href="/test-site-perso.html">
         <div class="brand-text">
           <span class="first-name">Etienne</span>
           <span class="last-name">McDowell</span>
         </div>
       </a>
       <nav class="top-nav">
-        <a href="/index.html">Work</a>
+        <a href="/test-site-perso.html">Work</a>
         <a href="/info.html">Info</a>
       </nav>
     </div>
@@ -27,58 +27,30 @@
 
   <!-- MAIN -->
   <main class="project-detail-section">
-    <a href="/index.html" class="back-link">← Back to Work</a>
+    <a href="/test-site-perso.html" class="back-link">← Back to Work</a>
 
-    <div class="project-detail" id="project-content">
-      <!-- Content injected by JS -->
-    </div>
+    <div class="project-detail" id="project-content"></div>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-content">
       <a href="#" class="go-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-        <span class="arrow">↑</span>
-        <span class="go-to-top-text">Go to top</span>
+        ↑ Go to top
       </a>
     </div>
   </footer>
 
-  <!-- PROJECT DATA + RENDER -->
+  <!-- PROJECT DATA -->
   <script>
     const projects = {
       mountains: {
         title: "Calendar Summits of the World",
         year: "2024",
         category: "Editorial Design",
-        galleryType: "two-column",
         items: [
           { image: "images/calendar-01.jpg" },
           { image: "images/calendar-02.jpg" }
-        ]
-      },
-      driftwire: {
-        title: "Driftwire Brand Identity",
-        year: "2025",
-        category: "Brand Identity",
-        galleryType: "two-column-grid",
-        items: [
-          { image: "images/driftwire-01.jpg" },
-          { image: "images/driftwire-02.jpg" },
-          { image: "images/driftwire-03.jpg" },
-          { image: "images/driftwire-04.jpg" }
-        ]
-      },
-      lukx: {
-        title: "Lukx Merchandise",
-        year: "2024",
-        category: "Merchandising",
-        galleryType: "lukx",
-        logo: "images/lukx-logo.png",
-        description: "Collection of merchandise for Lukx, combining urban design and premium quality.",
-        items: [
-          { image: "images/lukx-tshirt-01.jpg" },
-          { image: "images/lukx-tshirt-02.jpg" }
         ]
       }
     };
@@ -91,30 +63,17 @@
     if (!project) {
       container.innerHTML = `
         <h1>Project not found</h1>
-        <a href="/index.html">← Back to Work</a>
+        <a href="/test-site-perso.html">← Back to Work</a>
       `;
     } else {
       let html = `
-        <div class="project-header">
-          <h1 class="project-title">${project.title}</h1>
-          <div class="project-meta">
-            <span>${project.category}</span>
-            <span>${project.year}</span>
-          </div>
-        </div>
+        <h1>${project.title}</h1>
+        <p>${project.category} — ${project.year}</p>
       `;
 
-      if (project.items) {
-        html += `<div class="project-gallery">`;
-        project.items.forEach((item, i) => {
-          html += `
-            <div class="gallery-item">
-              <img src="${item.image}" alt="${project.title} ${i + 1}">
-            </div>
-          `;
-        });
-        html += `</div>`;
-      }
+      project.items.forEach(item => {
+        html += `<img src="${item.image}" style="width:100%;margin-bottom:40px;">`;
+      });
 
       container.innerHTML = html;
     }
